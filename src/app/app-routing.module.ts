@@ -18,7 +18,11 @@ const routes: Routes = [
     path: 'subscription',
     loadChildren: './subscription/subscription.module#SubscriptionModule'
   }
-  
+  ,
+  {
+    path: 'dashboard',
+    loadChildren: './dashboard/dashboard.module#DashboardAppModule'
+  }
 ];
 
 @NgModule({

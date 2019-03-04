@@ -22,9 +22,22 @@ export class SubscriptionUserComponent implements OnInit {
   subscriptionUserModel = new SubscriptionUser();
 
   step:number;
+  FirstName:string='';
+  LastName:string='';
+  Address:string='';
+  DOB:Date=null;
+  Gender:string='';
+  Blog:string='';
+  Email:string='';
+  isWomen:boolean=false;
+  pwForm:string='';
+  pwFormConfim:string='';
+  urlTwitter:string='';
+  shortBio:string='';
+  Skills:string='';
   isWoman:string='';
-
-
+  ask:string='';
+  offer:string='';
 
   SkillsList: any[] = [{name:''}];
   visible = true;
@@ -64,10 +77,10 @@ export class SubscriptionUserComponent implements OnInit {
     });
 
     this.regiFormInfoPersoThird = fb.group({
-      'urlTwitter' : [null, Validators.required],
-      'shortBio' : [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(280)])],
-      'Skills' : [null, Validators.required],
-      'IsWomen' : [null],
+      'urlTwitter' : [null, Validators.compose([Validators.required, Validators.minLength(20), Validators.maxLength(280)])],
+      'shortBio' : [null, Validators.compose([Validators.required, Validators.minLength(20), Validators.maxLength(280)])],
+      'Skills' : [null, null],
+      'isWomen' : [null, null],
       'ask' : [null, Validators.required],
       'offer' : [null, Validators.required],
 
@@ -82,9 +95,6 @@ export class SubscriptionUserComponent implements OnInit {
 
     switch (this.step) {
       case 0:
-      this.subscriptionUserModel.Email= form.Email;
-      this.subscriptionUserModel.pwForm= form.pwForm;
-
           this.subscriptionUserService.postInfo(this.subscriptionUserModel)
           .pipe(first())
           .subscribe(
@@ -107,18 +117,22 @@ export class SubscriptionUserComponent implements OnInit {
 
       console.log(form);
       break;
+      case 3:
+      this.step++;
+
+      console.log(form);
+      break;
+      case 4:
+
+      console.log(form);
+      break;
     }
   }
 
 
   // On Change event of Toggle Button
-  onChange(event:any)
-  {
-    if (event.checked) {
-      this.IsWomen = true;
-    } else {
-      this.IsWomen = false;
-    }
+  onChange(event: any) {
+    this.isWomen = event.checked;
   }
 
   add(event: MatChipInputEvent): void {

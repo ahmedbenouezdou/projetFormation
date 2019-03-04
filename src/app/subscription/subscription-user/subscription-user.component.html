@@ -309,7 +309,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <mat-slide-toggle formControlName="IsWomen" (change)="onChange($event)">I am a woman
+                        <mat-slide-toggle formControlName="isWomen" (change)="onChange($event)">I am a woman
                             (some areas on the platform are exclusively for women, check the box to have access to them)
                             </mat-slide-toggle>
                     </td>
@@ -331,7 +331,7 @@
                             <textarea formControlName="offer" matInput placeholder="offer"></textarea>
                         </mat-form-field>
                         <mat-error>
-                            <span *ngIf="!regiFormInfoPersoThird.get('offer').valid && regiFormInfoPersoThird.get('offer').touched">Please enter ask !!!</span>
+                            <span *ngIf="!regiFormInfoPersoThird.get('offer').valid && regiFormInfoPersoThird.get('offer').touched">Please enter offer !!!</span>
                         </mat-error>
                     </td>
                 </tr>
