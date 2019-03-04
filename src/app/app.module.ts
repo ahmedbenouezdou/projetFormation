@@ -10,7 +10,7 @@ import { HomeModule } from './home/home.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { DiscoverModule} from './discover/discover.module';
-import { DashboardAppModule } from './dashboard-app/dashboard-app.module';
+import { DashboardAppModule } from './dashboard/dashboard.module';
 @NgModule({
   declarations: [
     AppComponent
